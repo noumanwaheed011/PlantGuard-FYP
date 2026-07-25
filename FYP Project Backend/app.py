@@ -25,7 +25,14 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 
 # Initialize extensions
 # CORS configuration - allow all origins in development, restrict in production
-CORS_ORIGINS = os.getenv('CORS_ORIGINS', 'http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,http://127.0.0.1:3000').split(',')
+CORS_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv(
+        'CORS_ORIGINS',
+        'http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,http://127.0.0.1:3000',
+    ).split(',')
+    if origin.strip()
+]
 CORS(app, origins=CORS_ORIGINS, supports_credentials=True, allow_headers=['Content-Type', 'Authorization'])
 jwt = JWTManager(app)
 
@@ -94,12 +101,16 @@ def forbidden(error):
     return jsonify({'error': 'Forbidden'}), 403
 
 
-# Note: @app.before_first_request is deprecated in Flask 2.2+
-# Database initialization happens in main block
+# Eager DB init for gunicorn / Render (not only `python app.py`)
+try:
+    get_db()
+    print("✓ MongoDB connected (startup)")
+except Exception as e:
+    # Allow process to start; /api/health will report unhealthy until DB is ready
+    print(f"⚠ MongoDB not ready at startup: {e}")
 
 
 if __name__ == '__main__':
-    # Initialize database connection
     try:
         get_db()
         print("=" * 50)
@@ -113,14 +124,13 @@ if __name__ == '__main__':
         print(f"✗ Failed to initialize: {e}")
         print("Please ensure MongoDB is running and check your .env configuration")
         exit(1)
-    
-    # Get server configuration
+
     host = os.getenv('SERVER_HOST', '0.0.0.0')
     port = int(os.getenv('SERVER_PORT', 5000))
     debug = os.getenv('FLASK_DEBUG', '1') == '1'
-    
+
     print(f"\n🚀 Starting server on http://{host}:{port}")
     print(f"📧 Email OTP: {'Configured' if os.getenv('SMTP_USERNAME') else 'Not configured (check .env)'}")
     print("\nPress CTRL+C to stop\n")
-    
+
     app.run(host=host, port=port, debug=debug)
