@@ -17,6 +17,8 @@ from utils.model_loader import (
     CONFIDENCE_THRESHOLD,
     get_recent_softmax_logs,
 )
+
+# Do not import/load TensorFlow at module import time — keeps gunicorn boot fast.
 from utils.disease_info import DISEASE_INFO
 from utils.image_validation import validate_leaf_image, ENABLE_LEAF_PREFILTER
 

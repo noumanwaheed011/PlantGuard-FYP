@@ -1,0 +1,9 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "pip install -r requirements.txt"
+
+[deploy]
+# Long timeout: first TensorFlow predict can be slow on small instances
+startCommand = "gunicorn -b 0.0.0.0:$PORT --timeout 180 --workers 1 --threads 2 app:app"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5

@@ -7,40 +7,32 @@ Training (Colab) contract this file must match:
   - tensorflow.keras.applications.mobilenet_v2.preprocess_input  →  [-1, 1]
   - batch dim (1, 224, 224, 3)
   - 11 classes in alphabetical folder order (see class_indices.json)
+
+Model is loaded lazily so gunicorn can bind PORT before TensorFlow starts.
 """
 
 from __future__ import annotations
 
 import json
 import logging
+import os
 from collections import deque
 from typing import Any
 
 import numpy as np
-from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
-# Paths / model
-# ---------------------------------------------------------------------------
-MODEL_PATH = "ml_model/pidds_v2_30epochs_final.keras"
-CLASS_PATH = "ml_model/class_indices.json"
+MODEL_PATH = os.getenv("MODEL_PATH", "ml_model/pidds_v2_30epochs_final.keras")
+CLASS_PATH = os.getenv("CLASS_PATH", "ml_model/class_indices.json")
 IMG_SIZE = (224, 224)
 
-# Reject predictions when top softmax prob is below this (0–1).
 CONFIDENCE_THRESHOLD = 0.65
-
-# Also reject when top-1 and top-2 are too close (ambiguous).
 MIN_TOP1_TOP2_MARGIN = 0.12
 
-# Ring buffer of recent full softmax vectors for debugging.
 SOFTMAX_LOG_SIZE = 20
 _recent_softmax: deque = deque(maxlen=SOFTMAX_LOG_SIZE)
 
-# Disease → crop (for API metadata only)
 DISEASE_TO_PLANT = {
     "Algal_Leaf_Spot": "jackfruit",
     "Black_Spot": "jackfruit",
@@ -55,51 +47,60 @@ DISEASE_TO_PLANT = {
     "Healthy": "supported",
 }
 
-model = load_model(MODEL_PATH)
-
-with open(CLASS_PATH, "r", encoding="utf-8") as f:
-    _raw_indices = json.load(f)
-
-# Support both {"0": "Class"} and {"Class": 0} styles from training exports.
-if all(str(k).isdigit() for k in _raw_indices.keys()):
-    class_indices = {str(k): v for k, v in _raw_indices.items()}
-else:
-    class_indices = {str(v): k for k, v in _raw_indices.items()}
-
-_num_model_classes = int(model.output_shape[-1])
-_num_json_classes = len(class_indices)
-if _num_model_classes != _num_json_classes:
-    logger.warning(
-        "Class count mismatch: model=%s json=%s",
-        _num_model_classes,
-        _num_json_classes,
-    )
-
-logger.info(
-    "Loaded disease model %s | classes=%s | mapping=%s",
-    MODEL_PATH,
-    _num_model_classes,
-    class_indices,
-)
+_model = None
+class_indices = {}
 
 
-def _preprocess(img_path: str) -> np.ndarray:
-    """
-    Exact training preprocessing:
-      load RGB → resize 224x224 → float32 array → batch → MobileNetV2 preprocess_input
-    """
-    # keras load_img uses PIL → RGB
+def _load_class_indices():
+    global class_indices
+    if class_indices:
+        return class_indices
+    with open(CLASS_PATH, "r", encoding="utf-8") as f:
+        raw = json.load(f)
+    if all(str(k).isdigit() for k in raw.keys()):
+        class_indices = {str(k): v for k, v in raw.items()}
+    else:
+        class_indices = {str(v): k for k, v in raw.items()}
+    return class_indices
+
+
+def get_model():
+    """Lazy-load TensorFlow model (first analyze call pays the cost)."""
+    global _model
+    if _model is not None:
+        return _model
+
+    # Reduce TF startup noise / memory on small cloud VMs
+    os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "2")
+
+    from tensorflow.keras.models import load_model
+
+    logger.info("Loading disease model from %s ...", MODEL_PATH)
+    _model = load_model(MODEL_PATH)
+    mapping = _load_class_indices()
+    n_model = int(_model.output_shape[-1])
+    n_json = len(mapping)
+    if n_model != n_json:
+        logger.warning("Class count mismatch: model=%s json=%s", n_model, n_json)
+    logger.info("Model ready | classes=%s | mapping=%s", n_model, mapping)
+    return _model
+
+
+def _preprocess(img_path: str):
+    from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+    from tensorflow.keras.preprocessing import image
+
     img = image.load_img(img_path, target_size=IMG_SIZE)
-    arr = image.img_to_array(img)  # (224, 224, 3) float32, RGB, ~[0, 255]
-    arr = np.expand_dims(arr, axis=0)  # (1, 224, 224, 3)
+    arr = image.img_to_array(img)
+    arr = np.expand_dims(arr, axis=0)
 
     raw_min, raw_max = float(arr.min()), float(arr.max())
-    processed = preprocess_input(arr.copy())  # scales RGB to ~[-1, 1]
+    processed = preprocess_input(arr.copy())
     proc_min, proc_max = float(processed.min()), float(processed.max())
 
     logger.info(
         "Preprocess audit | path=%s | shape=%s | RGB_before=[%.2f, %.2f] | "
-        "after_mobilenet_preprocess=[%.4f, %.4f] | expected_after≈[-1, 1]",
+        "after_mobilenet_preprocess=[%.4f, %.4f]",
         img_path,
         processed.shape,
         raw_min,
@@ -111,26 +112,20 @@ def _preprocess(img_path: str) -> np.ndarray:
 
 
 def get_recent_softmax_logs() -> list[dict[str, Any]]:
-    """Return the last N full softmax distributions (for debugging)."""
     return list(_recent_softmax)
 
 
 def predict_image(img_path: str) -> dict[str, Any]:
-    """
-    Run inference with confidence-based rejection.
+    model = get_model()
+    mapping = _load_class_indices()
 
-    Returns a dict:
-      accepted (bool), disease, confidence (0-100), margin (0-100),
-      entropy, plant, code, message, probabilities {class: pct}
-    """
     batch = _preprocess(img_path)
     prediction = model.predict(batch, verbose=0)[0]
 
-    # Full per-class distribution
     probs = {
-        class_indices[str(i)]: float(prediction[i])
+        mapping[str(i)]: float(prediction[i])
         for i in range(len(prediction))
-        if str(i) in class_indices
+        if str(i) in mapping
     }
     sorted_items = sorted(probs.items(), key=lambda x: x[1], reverse=True)
     top_class, top_prob = sorted_items[0]
@@ -156,13 +151,6 @@ def predict_image(img_path: str) -> dict[str, Any]:
     plant = DISEASE_TO_PLANT.get(top_class)
 
     if top_prob < CONFIDENCE_THRESHOLD or margin < MIN_TOP1_TOP2_MARGIN:
-        logger.info(
-            "Rejected low-confidence prediction | top=%s p=%.3f thr=%.2f margin=%.3f",
-            top_class,
-            top_prob,
-            CONFIDENCE_THRESHOLD,
-            margin,
-        )
         return {
             "accepted": False,
             "disease": None,
@@ -189,3 +177,7 @@ def predict_image(img_path: str) -> dict[str, Any]:
         "message": None,
         "probabilities": {k: round(v * 100.0, 2) for k, v in sorted_items},
     }
+
+
+# Eager class map only (cheap); TF model stays lazy
+_load_class_indices()

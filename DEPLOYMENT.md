@@ -1,77 +1,55 @@
-# PlantGuard Deployment Guide
+# PlantGuard Deployment
 
-## Architecture
+## Live URLs
 
-- **Frontend:** Vercel — https://plantguard-dusky.vercel.app
-- **Backend:** Render (Flask + TensorFlow) — needs a free Render account with billing card on file
-- **Database:** MongoDB Atlas (free M0 cluster) — local MongoDB will not work from the cloud
+| Layer | URL |
+|-------|-----|
+| Frontend (Vercel) | https://plantguard-dusky.vercel.app |
+| Backend API (Railway) | https://plantguard-api-production-8410.up.railway.app |
+| Health check | https://plantguard-api-production-8410.up.railway.app/api/health |
 
-## Frontend (done)
+Frontend env: `VITE_API_BASE_URL=https://plantguard-api-production-8410.up.railway.app/api`
 
-Live URL: **https://plantguard-dusky.vercel.app**
+## Why Railway instead of Render?
 
-Set env var in Vercel project settings (or CLI):
+Render account creation returned **HTTP 402** (`Payment information is required`) even for the free plan. Backend + MongoDB were deployed on **Railway** instead so the app works end-to-end.
+
+Render config remains in the repo for later use:
+
+- [`render.yaml`](render.yaml)
+- [`FYP Project Backend/Procfile`](FYP%20Project%20Backend/Procfile)
+- [`FYP Project Backend/runtime.txt`](FYP%20Project%20Backend/runtime.txt)
+
+To switch to Render later: add a card at https://dashboard.render.com/billing, create the Blueprint from `render.yaml`, set `MONGODB_URI` (Atlas), then update Vercel `VITE_API_BASE_URL`.
+
+## Local development
 
 ```bash
+# Backend
+cd "FYP Project Backend"
+# .env with local MongoDB
+python app.py
+
+# Frontend
 cd "FYP Project Frontend"
-vercel env add VITE_API_BASE_URL production
-# value: https://YOUR-RENDER-SERVICE.onrender.com/api
-vercel --prod
+# .env: VITE_API_BASE_URL=http://localhost:5000/api
+npm run dev
 ```
 
-## Backend on Render
-
-### 1. Billing (required by Render)
-
-Visit https://dashboard.render.com/billing and add a payment method (free tier still requires a card).
-
-### 2. MongoDB Atlas
-
-1. Create a free cluster at https://cloud.mongodb.com
-2. Database Access → create user + password
-3. Network Access → allow `0.0.0.0/0` (or Render IPs)
-4. Connect → copy `mongodb+srv://...` URI
-
-### 3. Create the web service
-
-**Option A — Blueprint**
-
-1. Dashboard → New → Blueprint
-2. Connect GitHub repo `noumanwaheed011/PlantGuard-FYP`
-3. Use root [`render.yaml`](render.yaml)
-
-**Option B — CLI** (after `render login`)
+## Redeploy commands
 
 ```bash
-render workspace set <your-workspace-id>
-render services create \
-  --name plantguard-api \
-  --type web_service \
-  --repo https://github.com/noumanwaheed011/PlantGuard-FYP \
-  --branch main \
-  --runtime python \
-  --root-directory "FYP Project Backend" \
-  --build-command "pip install -r requirements.txt" \
-  --start-command "gunicorn -b 0.0.0.0:$PORT --timeout 120 --workers 1 --threads 2 app:app" \
-  --plan free \
-  --health-check-path /api/health \
-  --env-var "FLASK_ENV=production" \
-  --env-var "FLASK_DEBUG=0" \
-  --env-var "MONGODB_URI=mongodb+srv://USER:PASS@CLUSTER/?retryWrites=true&w=majority" \
-  --env-var "CORS_ORIGINS=https://plantguard-dusky.vercel.app,https://plantguard.vercel.app" \
-  --env-var "JWT_SECRET_KEY=replace-with-long-random-string" \
-  --confirm --output json
+# Frontend
+cd "FYP Project Frontend"
+vercel --prod
+
+# Backend (upload current Backend folder)
+cd "FYP Project Backend"
+railway up -d -y -s plantguard-api
 ```
 
-### 4. Wire frontend → backend
+## Notes
 
-1. Copy the Render service URL (e.g. `https://plantguard-api.onrender.com`)
-2. Set Vercel `VITE_API_BASE_URL` to `https://plantguard-api.onrender.com/api`
-3. Redeploy frontend
-4. Ensure Render `CORS_ORIGINS` includes `https://plantguard-dusky.vercel.app`
-
-### Notes
-
-- Free Render services **spin down** after idle; first request can take ~1 minute.
-- TensorFlow needs enough RAM; if the free plan OOMs, upgrade the Render instance.
-- Repo is **public** so Render can clone it without GitHub App access. You can set it private again after connecting GitHub in Render.
+- Repo is **public** (needed so cloud hosts can clone without extra GitHub App setup).
+- `.env` secrets are **not** in git.
+- First disease analysis may be slow (TensorFlow model loads on first request).

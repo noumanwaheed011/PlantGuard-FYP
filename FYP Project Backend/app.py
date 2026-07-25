@@ -59,22 +59,20 @@ app.register_blueprint(feedback_bp)
 
 @app.route('/api/health', methods=['GET'])
 def health_check():
-    """Health check endpoint."""
+    """Liveness check — always 200 if the process is up (for cloud healthchecks)."""
+    db_status = 'unknown'
     try:
-        # Test MongoDB connection
         db = get_db()
         db.command('ping')
-        return jsonify({
-            'status': 'healthy',
-            'database': 'connected',
-            'message': 'PlantGuard AI Backend is running'
-        }), 200
+        db_status = 'connected'
     except Exception as e:
-        return jsonify({
-            'status': 'unhealthy',
-            'database': 'disconnected',
-            'error': str(e)
-        }), 500
+        db_status = f'disconnected: {e}'
+
+    return jsonify({
+        'status': 'healthy',
+        'database': db_status,
+        'message': 'PlantGuard AI Backend is running',
+    }), 200
 
 
 @app.errorhandler(404)
