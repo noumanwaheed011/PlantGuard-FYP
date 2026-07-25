@@ -1,0 +1,49 @@
+Step 1: MongoDB Start (Terminal 1)
+# Agar MongoDB manually start karna hai
+mongod --dbpath "C:\data\db"
+
+
+#Agar folder nahi hai: mkdir C:\data\db
+#MongoDB chalu rehna chahiye jab tak backend run ho raha hai.
+
+***************************************************************************************
+
+Step 2: Backend Start (Terminal 2)
+cd "C:\Users\ISHRAQ KHAN\Downloads\FYP\FYP Project Backend"
+
+# Agar pehli dafa run kar rahe ho, virtual environment create aur activate karo
+python -m venv venv
+venv\Scripts\activate
+
+# Dependencies install karo
+pip install -r requirements.txt
+
+python -m pip install --upgrade pip setuptools wheel
+
+pip install --no-cache-dir Pillow==10.2.0
+
+pip install --upgrade pip
+pip install --only-binary :all: Pillow==10.1.1
+
+pip install --upgrade pip setuptools wheel
+pip install Pillow==12.1.1
+
+pip install -r requirements.txt
+
+python app.py
+
+************************************************************************
+
+Step 3: Frontend Start (Terminal 3)
+cd "C:\Users\ISHRAQ KHAN\Downloads\FYP\FYP Project Frontend"
+
+node -v
+
+npm -v
+
+npm install
+
+npm run dev
+
+
+

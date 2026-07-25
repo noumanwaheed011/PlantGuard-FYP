@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+  body {
+    @apply font-sans antialiased text-gray-800 bg-forest-50;
+    margin: 0;
+    min-height: 100vh;
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  #root {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  @media (max-width: 639px) {
+    html {
+      font-size: 15px;
+    }
+  }
+}
+
+@layer components {
+  /* Shared page layout — mobile / tablet / desktop spacing */
+  .page-shell {
+    @apply min-h-screen px-4 sm:px-6 lg:px-8 py-24 sm:py-28;
+  }
+
+  .page-shell-centered {
+    @apply min-h-screen flex items-center justify-center px-4 sm:px-6 py-24 sm:py-28;
+  }
+
+  .page-card {
+    @apply bg-white/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-card border border-forest-100 p-6 sm:p-8 lg:p-10;
+  }
+
+  .page-bg {
+    @apply bg-gradient-to-br from-forest-50 via-white to-forest-100;
+  }
+
+  .page-bg-light {
+    @apply bg-gradient-to-br from-white via-forest-50/80 to-forest-100/60;
+  }
+
+  .hero-bg {
+    @apply bg-gradient-to-b from-forest-50 via-white to-forest-100/80;
+  }
+}
+
+/* Custom scrollbar - subtle green tint */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-forest-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-forest-400 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-forest-600;
+}
+
+/* Focus ring for accessibility */
+input:focus-visible,
+button:focus-visible {
+  @apply outline-2 outline-offset-2 outline-forest-500;
+}
+
+/* Input focus - smooth ring transition */
+input, textarea {
+  @apply transition-all duration-200 ease-out;
+}
+input:focus, textarea:focus {
+  @apply ring-2 ring-forest-400/30 ring-offset-2;
+}

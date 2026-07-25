@@ -1,0 +1,503 @@
+{
+  "Algal_Leaf_Spot": {
+    "common_name": "Algal Leaf Spot",
+    "scientific_name": "Cephaleuros virescens",
+    "plant": "Jackfruit (Artocarpus heterophyllus)",
+    "description": "Algal Leaf Spot is caused by a parasitic green alga called Cephaleuros virescens. It appears as circular to irregular orange-red or rusty-brown spots on the upper surface of leaves. The disease is common in humid tropical and subtropical regions and primarily affects the leaves and sometimes stems of jackfruit trees.",
+    "symptoms": [
+      "Circular or irregular orange-red to rusty-brown spots on upper leaf surface",
+      "Velvety or powdery appearance on the spot surface due to algal growth",
+      "Spots range from 2mm to 2cm in diameter",
+      "Yellowing of leaf tissue around the spots",
+      "Premature leaf drop in severe infections",
+      "Reduced photosynthesis leading to poor fruit quality"
+    ],
+    "causes": [
+      "Parasitic green alga Cephaleuros virescens",
+      "High humidity and waterlogged conditions",
+      "Poor air circulation within the canopy",
+      "Weakened trees due to nutritional deficiency",
+      "Rainy seasons with prolonged wet periods"
+    ],
+    "severity": "Moderate — Can cause significant defoliation if untreated",
+    "treatment": [
+      "Spray copper-based fungicides (Copper Oxychloride 50% WP at 3g/L water)",
+      "Apply Bordeaux mixture (1%) every 15 days during wet season",
+      "Remove and destroy severely infected leaves",
+      "Spray Mancozeb 75% WP at 2.5g/L water as an alternative",
+      "Repeat spraying after rainfall"
+    ],
+    "prevention": [
+      "Prune trees regularly to improve air circulation",
+      "Avoid overhead irrigation — use drip irrigation instead",
+      "Apply balanced fertilizers especially potassium to strengthen plant immunity",
+      "Remove fallen infected leaves from the ground",
+      "Maintain proper spacing between trees",
+      "Apply preventive copper sprays at the start of rainy season"
+    ],
+    "recovery_chance": "High if detected early (below 40% infection)",
+    "source": "CABI Plantwise, FAO Plant Health"
+  },
+  "Black_Spot": {
+    "common_name": "Black Spot Disease",
+    "scientific_name": "Colletotrichum gloeosporioides / Phomopsis sp.",
+    "plant": "Jackfruit (Artocarpus heterophyllus)",
+    "description": "Black Spot in Jackfruit is a fungal disease that causes dark black or brown necrotic lesions on leaves, stems, and fruits. It is particularly damaging during post-harvest and can spread rapidly under humid conditions. The disease significantly reduces marketable fruit quality and can cause premature fruit drop.",
+    "symptoms": [
+      "Small black or dark brown circular spots on leaves",
+      "Spots enlarge and may merge to form large necrotic areas",
+      "Water-soaked lesions in early stages",
+      "Dark sunken lesions on fruits causing post-harvest losses",
+      "Premature defoliation in severe cases",
+      "Pink spore masses visible on spots under humid conditions"
+    ],
+    "causes": [
+      "Fungal pathogens Colletotrichum gloeosporioides or Phomopsis sp.",
+      "High humidity (above 80%) and warm temperatures (25-30°C)",
+      "Wounds on plant surface from insects or pruning",
+      "Poor sanitation and infected plant debris",
+      "Infected planting material"
+    ],
+    "severity": "High — Can cause complete crop loss if untreated",
+    "treatment": [
+      "Apply Carbendazim 50% WP at 1g/L water every 10-14 days",
+      "Spray Thiophanate-methyl 70% WP at 1.5g/L water",
+      "Use Chlorothalonil 75% WP at 2g/L water as broad-spectrum fungicide",
+      "Remove and burn all infected plant parts immediately",
+      "Post-harvest treatment with hot water (52°C for 5 minutes) for fruits"
+    ],
+    "prevention": [
+      "Use disease-free certified planting material",
+      "Avoid creating wounds during pruning — sterilize tools",
+      "Maintain good drainage around tree base",
+      "Apply preventive fungicide sprays before monsoon season",
+      "Remove and destroy fallen infected leaves and fruits",
+      "Avoid excessive nitrogen fertilization"
+    ],
+    "recovery_chance": "Moderate — Early detection critical. Above 60% infection, recovery unlikely",
+    "source": "CABI Plantwise, FAO Post-Harvest Guidelines"
+  },
+  "Cutting_Weevil": {
+    "common_name": "Mango Shoot Weevil / Cutting Weevil",
+    "scientific_name": "Deporaus marginatus",
+    "plant": "Mango (Mangifera indica)",
+    "description": "The Mango Cutting Weevil is an insect pest where adult weevils cut young shoots and tender leaves. The female weevil cuts a young shoot partially, rolls the leaf into a cigar-shaped tube, lays eggs inside, and the cut shoot falls to the ground. This causes significant loss of young shoots especially during the flushing season.",
+    "symptoms": [
+      "Young shoots cut partially and hanging or fallen on ground",
+      "Leaves rolled into cigar-shaped tubes (egg-laying sites)",
+      "Wilting and drying of cut shoots",
+      "Tiny puncture marks on young tender leaves",
+      "Presence of adult weevils (3-4mm, black with white markings) on shoots",
+      "Severe dieback of young growth during flushing season"
+    ],
+    "causes": [
+      "Adult weevil Deporaus marginatus",
+      "Peak activity during new flush/shoot emergence",
+      "Warm humid conditions favor weevil population",
+      "Dense canopy providing shelter for pests",
+      "Nearby infested trees spreading the pest"
+    ],
+    "severity": "High during flush season — Can destroy entire new growth",
+    "treatment": [
+      "Spray Chlorpyriphos 20% EC at 2mL/L water when new flush appears",
+      "Apply Imidacloprid 17.8% SL at 0.5mL/L water as systemic insecticide",
+      "Use Quinalphos 25% EC at 2mL/L water",
+      "Collect and destroy fallen cut shoots daily to break pest cycle",
+      "Apply Neem-based insecticide (Azadirachtin 0.03%) at 5mL/L water as organic option"
+    ],
+    "prevention": [
+      "Monitor trees regularly during flushing season",
+      "Collect and destroy rolled leaf tubes containing eggs",
+      "Apply preventive insecticide spray before new flush emergence",
+      "Remove weeds and alternate hosts near mango trees",
+      "Encourage natural predators by avoiding broad-spectrum pesticides",
+      "Prune dense canopy to reduce shelter for weevils"
+    ],
+    "recovery_chance": "High if treated promptly — New flush will emerge after treatment",
+    "source": "Pakistan Agriculture Research Council, CABI Plantwise"
+  },
+  "Gall_Midge": {
+    "common_name": "Mango Gall Midge",
+    "scientific_name": "Erosomyia mangiferae",
+    "plant": "Mango (Mangifera indica)",
+    "description": "Mango Gall Midge is a serious insect pest caused by tiny flies whose larvae create galls (abnormal growths) on mango leaves, petioles, and sometimes flowers and young fruits. The larvae feed inside the plant tissue causing distortion and gall formation. Heavy infestation can severely reduce tree vigor and fruit production.",
+    "symptoms": [
+      "Small green to brown galls (swellings) on leaf surface",
+      "Leaf curling and distortion",
+      "Galls on petioles causing leaf drop",
+      "Abnormal swellings on young stems",
+      "Galls on flower stalks reducing fruit set",
+      "Yellowing of infested leaves"
+    ],
+    "causes": [
+      "Gall midge fly Erosomyia mangiferae",
+      "Larvae feeding inside plant tissue",
+      "Peak infestation during new flush and flowering",
+      "High humidity and moderate temperatures (20-28°C)",
+      "Dense planting allowing pest spread"
+    ],
+    "severity": "High — Can cause 30-70% reduction in yield",
+    "treatment": [
+      "Spray Dimethoate 30% EC at 2mL/L water during new flush",
+      "Apply Phosphamidon 40% SL at 1.5mL/L water",
+      "Use Systemic insecticide Thiamethoxam 25% WG at 0.3g/L water",
+      "Remove and destroy galled plant parts",
+      "Soil application of Chlorpyriphos 20% EC (10mL/tree) to kill pupating larvae"
+    ],
+    "prevention": [
+      "Regular monitoring during flushing and flowering",
+      "Prune and destroy infested shoots immediately",
+      "Rake and remove soil around tree base to expose pupae",
+      "Apply preventive spray 2 weeks before expected flush",
+      "Maintain tree health through proper fertilization",
+      "Inter-crop with plants that harbor natural enemies"
+    ],
+    "recovery_chance": "Moderate — Multiple treatments needed. Above 60% galling, season is lost",
+    "source": "CABI Plantwise, FAO Mango Production Guidelines"
+  },
+  "Die_Back": {
+    "common_name": "Mango Die Back",
+    "scientific_name": "Lasiodiplodia theobromae",
+    "plant": "Mango (Mangifera indica)",
+    "description": "Die Back is one of the most serious fungal diseases of mango. The fungus invades through wounds and causes progressive death of shoots and branches from the tip backward. It can spread to major branches and the trunk, eventually killing the entire tree. The disease is particularly severe in stressed trees.",
+    "symptoms": [
+      "Drying and dying of shoot tips progressing downward",
+      "Dark brown to black discoloration under bark of infected shoots",
+      "Leaves turn brown and remain attached to dead shoots",
+      "Gum exudation from infected branches",
+      "Dark streaks in wood when branch is cut",
+      "Entire branch death in advanced stages",
+      "Cankers on main stem in severe cases"
+    ],
+    "causes": [
+      "Fungus Lasiodiplodia theobromae entering through wounds",
+      "Pruning wounds left untreated",
+      "Sunburn damage on branches",
+      "Drought stress weakening tree immunity",
+      "Insect damage creating entry points"
+    ],
+    "severity": "Very High — Can kill entire tree if untreated. Recovery impossible above 60% infection",
+    "treatment": [
+      "Prune infected shoots 15-20cm below visible infection",
+      "Paint all pruning wounds immediately with Bordeaux paste or Copper Oxychloride",
+      "Spray Carbendazim 50% WP at 1g/L water on pruned areas",
+      "Apply Thiophanate-methyl 70% WP at 1.5g/L water",
+      "Trunk injection with Tridemorph in severe cases",
+      "Remove severely infected trees to prevent spread"
+    ],
+    "prevention": [
+      "Always paint pruning wounds with fungicide paste immediately",
+      "Avoid creating unnecessary wounds on trees",
+      "Maintain adequate irrigation — drought stress increases susceptibility",
+      "Apply balanced fertilizer especially potassium and phosphorus",
+      "Remove and burn dead wood immediately",
+      "Sterilize pruning tools between trees with 70% alcohol"
+    ],
+    "recovery_chance": "Low to None above 60% infection — Early detection is critical",
+    "source": "Pakistan Agriculture Research Council, CABI Die Back Management"
+  },
+  "Sooty_Mould": {
+    "common_name": "Sooty Mould",
+    "scientific_name": "Capnodium mangiferae / Meliola mangiferae",
+    "plant": "Mango (Mangifera indica)",
+    "description": "Sooty Mould is a fungal disease that grows on the honeydew secreted by sucking insects like mealybugs, scale insects, and aphids. The black sooty coating covers leaf surfaces, blocking sunlight and reducing photosynthesis. It is a secondary disease — controlling the honeydew-producing insects is the primary solution.",
+    "symptoms": [
+      "Black sooty coating on upper surface of leaves",
+      "Coating can be wiped off with fingers (unlike other diseases)",
+      "Reduced leaf shine and dark appearance of entire canopy",
+      "Presence of sucking insects (mealybugs, scales, aphids) on undersides of leaves",
+      "Stunted growth due to reduced photosynthesis",
+      "Black coating on young fruits reducing market value"
+    ],
+    "causes": [
+      "Fungus growing on honeydew from sucking pests",
+      "Mealybugs (Drosicha mangiferae) — primary culprit in Pakistan",
+      "Scale insects and aphids also produce honeydew",
+      "High humidity favoring fungal growth",
+      "Dense canopy reducing air movement"
+    ],
+    "severity": "Moderate — Mainly reduces yield quality and photosynthesis",
+    "treatment": [
+      "First: Control sucking insects with Imidacloprid 17.8% SL at 0.5mL/L water",
+      "Apply Dimethoate 30% EC at 2mL/L water for mealybug control",
+      "Wash leaves with water to physically remove sooty mould",
+      "Spray starch solution (2%) to strip mould coating",
+      "Apply Copper Oxychloride 50% WP at 3g/L water after pest control",
+      "Use sticky bands on tree trunks to prevent ant-mealybug mutualism"
+    ],
+    "prevention": [
+      "Control sucking insect populations before honeydew production",
+      "Apply sticky bands on tree trunks to block ants carrying mealybugs",
+      "Prune to improve air circulation",
+      "Encourage natural predators (ladybirds, lacewings)",
+      "Avoid excessive nitrogen fertilization which attracts sucking pests",
+      "Regular monitoring for sucking insects especially before mango season"
+    ],
+    "recovery_chance": "High — Once insects are controlled, new leaves will be clean",
+    "source": "CABI Plantwise, Pakistan Mango Research Institute"
+  },
+  "Powdery_Mildew": {
+    "common_name": "Powdery Mildew",
+    "scientific_name": "Oidium mangiferae",
+    "plant": "Mango (Mangifera indica)",
+    "description": "Powdery Mildew is one of the most destructive diseases of mango, particularly affecting the flowering and fruiting stages. The fungus produces white powdery growth on flowers, young fruits, and leaves. It is most devastating during the flowering season and can cause complete crop failure if not managed.",
+    "symptoms": [
+      "White powdery coating on flowers, young leaves, and fruits",
+      "Infected flowers turn brown and drop prematurely",
+      "Young fruits develop white coating and drop",
+      "Distortion of affected plant parts",
+      "Severe flower and fruit drop leading to crop loss",
+      "Leaves show white patches that later turn brown"
+    ],
+    "causes": [
+      "Fungus Oidium mangiferae",
+      "Cool nights and warm days (15-20°C nights, 25-30°C days)",
+      "High relative humidity without rain (unlike other fungal diseases)",
+      "Dense canopy with poor air movement",
+      "Peak infection during flowering season (January-March in Pakistan)"
+    ],
+    "severity": "Very High — Can cause 80-100% crop loss during severe outbreaks",
+    "treatment": [
+      "Spray Sulphur 80% WP at 3g/L water — most effective and economical",
+      "Apply Hexaconazole 5% SC at 2mL/L water",
+      "Use Myclobutanil 10% WP at 1g/L water for severe infections",
+      "Spray Tebuconazole 25.9% EC at 1mL/L water",
+      "Start treatment at first sign of powdery coating",
+      "Repeat every 10-15 days during flowering"
+    ],
+    "prevention": [
+      "Apply preventive sulphur spray before flowering begins",
+      "Prune trees to improve air circulation",
+      "Apply first spray when panicles (flower clusters) are just emerging",
+      "Avoid late evening irrigation during flowering",
+      "Monitor weather forecasts — spray before predicted cool humid nights",
+      "Remove and destroy infected plant parts"
+    ],
+    "recovery_chance": "High if treated at early stage. During peak flowering, immediate action essential",
+    "source": "Pakistan Agriculture Research Council, CABI Mango Disease Management"
+  },
+  "Bacterial_Leaf_Spot": {
+    "common_name": "Bacterial Leaf Spot",
+    "scientific_name": "Xanthomonas campestris pv. cucurbitae",
+    "plant": "Pumpkin (Cucurbita pepo)",
+    "description": "Bacterial Leaf Spot of Pumpkin is caused by Xanthomonas bacteria and is one of the most common and damaging diseases of cucurbits including pumpkin, squash, and cucumber. The bacteria enter through stomata and wounds, causing water-soaked lesions that turn yellow-brown and eventually die.",
+    "symptoms": [
+      "Small water-soaked spots on leaves, initially appearing greasy",
+      "Spots turn yellow then brown with angular shape (limited by leaf veins)",
+      "Yellow halo surrounding brown lesions",
+      "Lesions may tear giving leaves a ragged appearance",
+      "Spots on fruits appear dark and water-soaked",
+      "Fruit rotting in severe infections"
+    ],
+    "causes": [
+      "Bacteria Xanthomonas campestris pv. cucurbitae",
+      "Spread through water splash, rain, and contaminated tools",
+      "High humidity and warm temperatures (24-30°C)",
+      "Wounds from insects or mechanical damage",
+      "Infected seeds spreading to new plants"
+    ],
+    "severity": "High — Rapidly spreads under wet conditions. Major yield loss possible",
+    "treatment": [
+      "Spray Copper Hydroxide 77% WP at 2.5g/L water every 7-10 days",
+      "Apply Copper Oxychloride 50% WP at 3g/L water",
+      "Use Streptomycin Sulphate 90% SP at 0.5g/L water (antibiotic)",
+      "Combine copper + streptomycin for better control",
+      "Remove and destroy severely infected leaves",
+      "Avoid working in field when plants are wet"
+    ],
+    "prevention": [
+      "Use certified disease-free seeds or treat seeds with hot water (50°C, 25 min)",
+      "Avoid overhead irrigation — use drip irrigation",
+      "Maintain 2-3 year crop rotation with non-cucurbit crops",
+      "Remove crop debris after harvest",
+      "Sterilize tools between plants",
+      "Avoid working in wet fields to prevent spread"
+    ],
+    "recovery_chance": "Moderate — Control possible if caught early. Poor prognosis above 60% infection",
+    "source": "FAO Cucurbit Disease Management, CABI Plantwise"
+  },
+  "Downy_Mildew": {
+    "common_name": "Downy Mildew",
+    "scientific_name": "Pseudoperonospora cubensis",
+    "plant": "Pumpkin (Cucurbita pepo)",
+    "description": "Downy Mildew is one of the most economically important diseases of cucurbits worldwide. It is caused by a water mold and spreads rapidly under cool, wet conditions. The disease can devastate entire pumpkin crops within days under favorable conditions. It is distinct from Powdery Mildew — it appears on undersides of leaves.",
+    "symptoms": [
+      "Yellow angular spots on upper leaf surface (limited by veins)",
+      "Purple-grey to brown downy growth on underside of leaves",
+      "Rapid leaf yellowing and browning",
+      "Leaves wilt and die rapidly",
+      "Disease spreads very fast in the field",
+      "Defoliation leaving fruits unprotected from sunburn"
+    ],
+    "causes": [
+      "Water mold Pseudoperonospora cubensis",
+      "Cool temperatures (15-20°C) with high humidity",
+      "Free moisture on leaves for at least 6 hours",
+      "Spores spread by wind over long distances",
+      "Overhead irrigation wetting leaves"
+    ],
+    "severity": "Very High — Can destroy entire crop within 1-2 weeks under favorable conditions",
+    "treatment": [
+      "Spray Metalaxyl 8% + Mancozeb 64% WP at 2.5g/L water — most effective",
+      "Apply Dimethomorph 50% WP at 1.5g/L water",
+      "Use Cymoxanil 8% + Mancozeb 64% WP at 2.5g/L water",
+      "Spray Fosetyl-Al 80% WP at 2.5g/L water as systemic treatment",
+      "Alternate between different fungicide groups to prevent resistance",
+      "Apply every 5-7 days during outbreak"
+    ],
+    "prevention": [
+      "Use resistant pumpkin varieties where available",
+      "Avoid overhead irrigation — use drip irrigation",
+      "Improve air circulation by proper plant spacing",
+      "Apply preventive fungicide sprays before disease appears during cool wet weather",
+      "Monitor weather — spray before predicted rainy cool periods",
+      "Remove infected plant debris from field"
+    ],
+    "recovery_chance": "Low above 50% infection — Speed of response is critical",
+    "source": "FAO Cucurbit Disease Guidelines, CABI Downy Mildew Management"
+  },
+  "Mosaic_Disease": {
+    "common_name": "Pumpkin Mosaic Disease",
+    "scientific_name": "Papaya Ringspot Virus (PRSV-W) / Watermelon Mosaic Virus (WMV)",
+    "plant": "Pumpkin (Cucurbita pepo)",
+    "description": "Mosaic Disease in pumpkin is caused by viral pathogens transmitted by aphids. The virus causes characteristic mosaic (mixed light and dark green) patterns on leaves, leaf distortion, and stunted growth. There is NO CURE for viral diseases — infected plants must be removed to prevent spread. Prevention through aphid control is the only management strategy.",
+    "symptoms": [
+      "Mosaic pattern — irregular light and dark green areas on leaves",
+      "Leaf curling, puckering, and distortion",
+      "Stunted plant growth",
+      "Small, misshapen fruits with discoloration",
+      "Fruits show yellow-green irregular patches",
+      "Reduced fruit set and quality"
+    ],
+    "causes": [
+      "Papaya Ringspot Virus (PRSV-W) or Watermelon Mosaic Virus (WMV)",
+      "Transmitted by aphids (especially Aphis gossypii) in non-persistent manner",
+      "Infected plant debris and nearby infected cucurbits",
+      "Contaminated tools in some cases",
+      "No seed transmission in most strains"
+    ],
+    "severity": "Very High — NO CURE. Infected plants must be removed immediately",
+    "treatment": [
+      "⚠️ NO CHEMICAL CURE EXISTS FOR VIRAL DISEASES",
+      "Remove and destroy infected plants immediately to prevent aphid spread",
+      "Control aphid vectors with Imidacloprid 17.8% SL at 0.5mL/L water",
+      "Apply Mineral oil spray (1%) to reduce aphid landing and virus transmission",
+      "Remove all infected crop residue after harvest",
+      "Reflective mulches confuse aphids and reduce virus spread"
+    ],
+    "prevention": [
+      "Control aphid populations before they transmit virus",
+      "Use reflective silver mulch to deter aphids",
+      "Plant resistant or tolerant varieties where available",
+      "Maintain 500m distance from other infected cucurbit crops",
+      "Remove weeds that harbor aphids and virus",
+      "Early planting to avoid peak aphid season",
+      "Monitor regularly and remove infected plants immediately"
+    ],
+    "recovery_chance": "None — Viral disease has no cure. Remove infected plants immediately to save neighbors",
+    "source": "FAO Virus Disease Management, CABI Cucurbit Virus Guidelines"
+  },
+  "Red_Rot": {
+    "common_name": "Red Rot",
+    "scientific_name": "Colletotrichum falcatum",
+    "plant": "Sugarcane (Saccharum officinarum)",
+    "description": "Red Rot is one of the most destructive fungal diseases of sugarcane. It reddens internal stalk tissue with white or silvery patches and produces a sour or alcoholic smell. External symptoms appear late, so by the time leaves yellow or the crown shows spindle infection, internal damage is often already severe.",
+    "symptoms": [
+      "Reddening of internal stalk tissue with white/silvery patches when cane is split",
+      "Distinct sour or alcoholic smell from infected stalks",
+      "Yellowing of leaves in advanced stages",
+      "Spindle infection visible at the crown",
+      "Drying and death of affected clumps",
+      "Reduced cane and sugar yield"
+    ],
+    "causes": [
+      "Fungus Colletotrichum falcatum",
+      "Humid and rainy weather favoring spread",
+      "Infected seed cane (setts) used for planting",
+      "Waterlogging and poor field drainage",
+      "Wounds and stressed plants increasing susceptibility"
+    ],
+    "severity": "Very High — Can wipe out an entire plantation under favorable conditions",
+    "treatment": [
+      "Apply Carbendazim 50% WP at about 1g/L water as a soil drench around affected clumps",
+      "Dip cane setts in 1% Bordeaux mixture or fungicide solution before planting",
+      "Remove and burn affected clumps immediately — do not compost infected material",
+      "Avoid further planting from infected fields",
+      "Improve drainage to reduce fungal spread"
+    ],
+    "prevention": [
+      "Use only healthy, disease-free seed cane (setts)",
+      "Plant resistant sugarcane varieties where available",
+      "Practice crop rotation and avoid waterlogging",
+      "Remove and destroy infected clumps promptly",
+      "Avoid taking planting material from fields with red rot history",
+      "Maintain field sanitation after harvest"
+    ],
+    "recovery_chance": "Low once infection is established — Early rogueing and clean planting material are critical",
+    "source": "Pakistan Agriculture Research Council, CABI Plantwise"
+  },
+  "Yellow_Disease": {
+    "common_name": "Yellow Leaf Disease",
+    "scientific_name": "Sugarcane Yellow Leaf Virus (ScYLV)",
+    "plant": "Sugarcane (Saccharum officinarum)",
+    "description": "Yellow Leaf Disease is a viral infection of sugarcane caused by Sugarcane Yellow Leaf Virus. It starts with intense yellowing of the leaf midrib and can progress to stunted growth, shortened internodes, and a bunchy-top appearance. There is no chemical cure — management is entirely preventive.",
+    "symptoms": [
+      "Intense yellowing of the leaf midrib, often visible on the underside first",
+      "Yellowing starting on leaves 3-6 counting down from the top",
+      "Yellowing spreading into the leaf blade as disease progresses",
+      "Stunted growth with shortened internodes",
+      "Bunchy-top appearance in severe cases",
+      "Early symptoms easily mistaken for nutrient deficiency or ageing"
+    ],
+    "causes": [
+      "Sugarcane Yellow Leaf Virus (ScYLV)",
+      "Transmission by aphids such as Melanaphis sacchari",
+      "Use of infected seed cane",
+      "Fields with a history of yellow leaf disease",
+      "Uncontrolled aphid populations spreading the virus"
+    ],
+    "severity": "High — Can reduce cane yield by up to 50% and sugar/juice yield by 40-50%",
+    "treatment": [
+      "No chemical cure exists for viral infection",
+      "Rogue out (remove) severely infected plants to reduce virus reservoir",
+      "Control aphid vectors with an appropriate insecticide",
+      "Do not take planting material from infected plants or fields",
+      "Replace severely affected stools with certified virus-free seed cane"
+    ],
+    "prevention": [
+      "Use only certified virus-free seed cane (tissue-culture-derived where possible)",
+      "Control aphid populations (Melanaphis sacchari), the primary vector",
+      "Rogue severely infected plants early",
+      "Avoid planting material from fields with yellow leaf disease history",
+      "Monitor regularly for midrib yellowing",
+      "Maintain good crop hygiene between seasons"
+    ],
+    "recovery_chance": "None for infected plants — Prevention and virus-free planting material are the only reliable strategy",
+    "source": "Pakistan Agriculture Research Council, CABI Plantwise"
+  },
+  "Healthy": {
+    "common_name": "Healthy Plant",
+    "scientific_name": "N/A",
+    "plant": "Jackfruit / Mango / Pumpkin",
+    "description": "The plant appears healthy with no visible signs of disease. The plant has not crossed the critical 60% infection threshold. Continue regular monitoring and preventive care to maintain plant health.",
+    "symptoms": [
+      "No disease symptoms visible",
+      "Normal green leaf color",
+      "No spots, lesions, or abnormal growth",
+      "Healthy shoot and leaf development"
+    ],
+    "causes": ["N/A — Plant is healthy"],
+    "severity": "None",
+    "treatment": ["No treatment required at this time"],
+    "prevention": [
+      "Continue regular monitoring every 7-10 days",
+      "Maintain proper irrigation and drainage",
+      "Apply balanced fertilizer (NPK) as per crop requirement",
+      "Keep field clean of weeds and crop debris",
+      "Apply preventive copper spray at start of rainy season",
+      "Control insect pests before they cause damage"
+    ],
+    "recovery_chance": "N/A — Plant is currently healthy. Early monitoring is key to keeping it healthy",
+    "source": "General Agricultural Best Practices"
+  }
+}
